@@ -188,20 +188,69 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Data Produk (disingkat untuk contoh)
+      // Data Produk
       const products = {
         "Semua Denom": [
-          { amount: "5 (5+0)", price: "Rp 1,500" },
-          { amount: "10 (9+1)", price: "Rp 3,001" }
+          { amount: "5 (5+0)", price: "Rp 1,500" }, { amount: "10 (9+1)", price: "Rp 3,001" },
+          { amount: "12 (11+1)", price: "Rp 3,462" }, { amount: "17 (17+0)", price: "Rp 4,963" },
+          { amount: "19 (17+2)", price: "Rp 5,423" }, { amount: "20 (18+2)", price: "Rp 6,001" },
+          { amount: "28 (25+3)", price: "Rp 7,886" }, { amount: "33 (33+0)", price: "Rp 9,386" },
+          { amount: "44 (40+4)", price: "Rp 11,848" }, { amount: "54 (50+4)", price: "Rp 14,849" },
+          { amount: "56 (50+6)", price: "Rp 15,311" }, { amount: "59 (53+6)", price: "Rp 15,771" },
+          { amount: "71 (64+7)", price: "Rp 19,234" }, { amount: "81 (80+1)", price: "Rp 22,234" },
+          { amount: "83 (80+3)", price: "Rp 22,696" }, { amount: "85 (77+8)", price: "Rp 22,658" },
+          { amount: "90 (80+10)", price: "Rp 24,158" }, { amount: "113 (102+11)", price: "Rp 30,543" },
+          { amount: "123 (117+6)", price: "Rp 33,506" }, { amount: "141 (134+7)", price: "Rp 37,967" },
+          { amount: "170 (154+16)", price: "Rp 45,354" }, { amount: "172 (154+18)", price: "Rp 46,316" },
+          { amount: "175 (160+15)", price: "Rp 46,854" }, { amount: "185 (167+18)", price: "Rp 49,854" },
+          { amount: "203 (167+36)", price: "Rp 54,740" }, { amount: "220 (200+20)", price: "Rp 59,703" },
+          { amount: "240 (217+23)", price: "Rp 63,934" }, { amount: "245 (217+28)", price: "Rp 65,434" },
+          { amount: "257 (233+24)", price: "Rp 68,896" }, { amount: "276 (250+26)", price: "Rp 74,320" },
+          { amount: "284 (257+27)", price: "Rp 75,782" }, { amount: "296 (256+40)", price: "Rp 78,667" },
+          { amount: "301 (261+40)", price: "Rp 80,167" }, { amount: "333 (302+31)", price: "Rp 89,553" },
+          { amount: "345 (314+31)", price: "Rp 92,015" }, { amount: "355 (322+33)", price: "Rp 94,439" },
+          { amount: "367 (333+34)", price: "Rp 97,900" }, { amount: "403 (367+36)", price: "Rp 107,788" },
+          { amount: "408 (367+41)", price: "Rp 108,210" }, { amount: "429 (383+46)", price: "Rp 115,212" },
+          { amount: "432 (383+49)", price: "Rp 116,135" }, { amount: "515 (467+48)", price: "Rp 137,331" },
+          { amount: "568 (503+65)", price: "Rp 147,602" }, { amount: "570 (503+67)", price: "Rp 149,101" },
+          { amount: "601 (533+68)", price: "Rp 156,988" }, { amount: "606 (533+73)", price: "Rp 158,488" },
+          { amount: "686 (637+49)", price: "Rp 179,646" }, { amount: "691 (637+54)", price: "Rp 181,145" },
+          { amount: "702 (637+65)", price: "Rp 183,607" }, { amount: "707 (668+39)", price: "Rp 185,108" },
+          { amount: "709 (668+41)", price: "Rp 185,569" }, { amount: "717 (638+79)", price: "Rp 187,531" },
+          { amount: "750 (668+82)", price: "Rp 196,417" }, { amount: "760 (668+92)", price: "Rp 199,918" },
+          { amount: "792 (703+89)", price: "Rp 207,804" }, { amount: "797 (703+94)", price: "Rp 208,727" },
+          { amount: "830 (700+130)", price: "Rp 217,998" }, { amount: "875 (774+101)", price: "Rp 226,230" },
+          { amount: "880 (774+106)", price: "Rp 227,731" }, { amount: "887 (774+113)", price: "Rp 229,692" },
+          { amount: "965 (856+109)", price: "Rp 250,387" }, { amount: "967 (856+111)", price: "Rp 251,388" },
+          { amount: "1004 (856+148)", price: "Rp 260,735" }, { amount: "1050 (928+122)", price: "Rp 273,083" },
+          { amount: "1159 (1031+128)", price: "Rp 302,666" }, { amount: "1220 (1093+127)", price: "Rp 318,437" },
+          { amount: "1412 (1258+154)", price: "Rp 368,946" }, { amount: "1448 (1258+190)", price: "Rp 375,331" },
+          { amount: "1711 (1509+202)", price: "Rp 448,651" }, { amount: "1830 (1509+321)", price: "Rp 474,694" },
+          { amount: "1835 (1509+326)", price: "Rp 475,117" }, { amount: "2010 (1708+302)", price: "Rp 491,775" },
+          { amount: "2048 (1708+340)", price: "Rp 502,661" }, { amount: "2157 (1708+449)", price: "Rp 531,704" },
+          { amount: "2195 (1879+316)", price: "Rp 547,514" }, { amount: "2976 (2499+477)", price: "Rp 745,663" },
+          { amount: "3410 (2985+425)", price: "Rp 858,258" }, { amount: "4026 (3416+610)", price: "Rp 1,016,130" },
+          { amount: "4830 (4003+827)", price: "Rp 1,180,157" }, { amount: "5238 (4506+732)", price: "Rp 1,288,368" },
+          { amount: "5705 (5124+581)", price: "Rp 1,406,387" }, { amount: "6113 (5124+989)", price: "Rp 1,514,597" },
+          { amount: "6580 (5711+869)", price: "Rp 1,632,618" }, { amount: "6988 (6832+156)", price: "Rp 1,740,827" },
+          { amount: "7455 (6832+623)", price: "Rp 1,858,848" }, { amount: "7715 (6832+883)", price: "Rp 1,898,162" },
+          { amount: "8850 (8006+844)", price: "Rp 2,163,705" }, { amount: "9660 (8006+1654)", price: "Rp 2,360,315" },
+          { amount: "10535 (8540+1995)", price: "Rp 2,586,546" }
         ],
         "Paket Event": [
-          { amount: "Top Up 100 Diamonds", price: "Rp 30,543" }
+          { amount: "Top Up 100 Diamonds", price: "Rp 30,543" }, { amount: "Top Up 250 Diamonds", price: "Rp 72,820" },
+          { amount: "Top Up 500 Diamonds", price: "Rp 147,602" }, { amount: "Top Up 1000 Diamonds", price: "Rp 295,203" }
         ],
         "Paket Pass": [
-          { amount: "Twilight Pass", price: "Rp 148,024" }
+          { amount: "Twilight Pass", price: "Rp 148,024" }, { amount: "Weekly Diamond Pass x1", price: "Rp 27,466" },
+          { amount: "WDP1X+170 DM", price: "Rp 72,820" }, { amount: "Weekly Diamond Pass x2", price: "Rp 54,932" },
+          { amount: "WDP2X+54 DM", price: "Rp 69,781" }, { amount: "Weekly Diamond Pass x3", price: "Rp 82,398" },
+          { amount: "Weekly Diamond Pass x4", price: "Rp 109,865" }, { amount: "Weekly Diamond Pass x5", price: "Rp 137,331" },
+          { amount: "Super Value Pass", price: "Rp 16,225" }
         ],
         "Diamond Double 1x Transaksi": [
-          { amount: "50+50 Diamonds", price: "Rp 16,500" }
+          { amount: "50+50 Diamonds", price: "Rp 16,500" }, { amount: "150+150 Diamonds", price: "Rp 47,850" },
+          { amount: "250+250 Diamonds", price: "Rp 101,750" }, { amount: "500+500 Diamonds", price: "Rp 158,950" }
         ]
       };
 
@@ -222,7 +271,6 @@
         }
       });
       
-      // Klik WhatsApp
       const adminNumber = '6285877001999';
       document.querySelectorAll('.item').forEach(item => {
         item.addEventListener('click', function () {
@@ -236,20 +284,4 @@
           } else {
             productCode = productName.toLowerCase().replace(/\s+/g, '-').replace(/[^+a-zA-Z0-9-]/g, '');
           }
-          const messageTemplate = `.buy ml${productCode} <userID> <serverID>`;
-          window.open(`https://wa.me/${adminNumber}?text=${encodeURIComponent(messageTemplate)}`, '_blank');
-        });
-      });
-
-      // Animasi muncul
-      setTimeout(() => {
-        document.querySelectorAll('.item').forEach((item, index) => {
-          item.style.transitionDelay = `${index * 25}ms`;
-          item.classList.add('is-visible');
-        });
-      }, 100);
-    });
-  </script>
-
-</body>
-</html>
+          const messageTemplate =
