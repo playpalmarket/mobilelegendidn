@@ -1,161 +1,72 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Mobile Legend Indonesia | PlayPal Market</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #ffffff;
-      --bg-soft: #F5F5F7;
-      --fg: #1D1D1F;
-      --muted: #6E6E73;
-      --border: rgba(0, 0, 0, 0.05);
-      --accent: #0071E3;
-      --accent-light: rgba(0, 113, 227, 0.08);
-      --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    :root{
+      --bg:#ffffff;
+      --bg-soft:#F5F5F7;
+      --fg:#1D1D1F;
+      --muted:#6E6E73;
+      --border:rgba(0,0,0,0.05);
+      --accent:#0071E3;
+      --accent-light:rgba(0,113,227,0.08);
+      --font-primary:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    body{
+      margin:0;background:var(--bg-soft);color:var(--fg);
+      font-family:var(--font-primary);font-size:16px;line-height:1.6;
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
+    header{
+      background:var(--bg);padding:60px 20px;text-align:center;border-bottom:1px solid var(--border);
+    }
+    header h1{font-size:2.5rem;margin:0;font-weight:700;letter-spacing:-0.03em}
 
-    body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg-soft);
-      color: var(--fg);
-      font-family: var(--font-primary);
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+    .section{max-width:1200px;margin:60px auto;padding:0 20px}
+    .section h2{font-size:1.5rem;font-weight:600;color:var(--fg);margin-bottom:32px;letter-spacing:-0.01em}
 
-    /* Header */
-    header {
-      background-color: var(--bg);
-      padding: 60px 20px;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-    }
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px}
 
-    header h1 {
-      font-size: 2.5rem;
-      margin: 0;
-      font-weight: 700;
-      letter-spacing: -0.03em;
+    .item{
+      background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:20px;
+      text-align:left;cursor:pointer;display:flex;flex-direction:column;justify-content:center;
+      opacity:0;transform:translateY(20px);
+      transition:transform .4s cubic-bezier(.4,0,.2,1), box-shadow .4s cubic-bezier(.4,0,.2,1), border-color .3s ease, opacity .5s ease-out;
     }
+    .item.is-visible{opacity:1;transform:translateY(0)}
+    .item:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 8px 20px var(--accent-light)}
+    .item:active{transform:translateY(-1px) scale(.99);box-shadow:0 4px 10px rgba(0,0,0,0.05)}
 
-    /* Section */
-    .section {
-      max-width: 1200px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
+    .amount{font-weight:600;font-size:1.1rem;margin-bottom:6px;letter-spacing:-0.01em}
+    .price{font-size:.9rem;color:var(--muted);font-weight:500}
 
-    .section h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--fg);
-      margin-bottom: 32px;
-      letter-spacing: -0.01em;
-    }
+    .note{font-size:.9rem;color:var(--muted);text-align:center;margin-top:40px;line-height:1.5;max-width:600px;margin-left:auto;margin-right:auto}
 
-    /* Grid */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 24px;
-    }
+    footer{padding:40px 20px 60px;border-top:1px solid var(--border);background:var(--bg)}
 
-    /* Item Card */
-    .item {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      opacity: 0;
-      transform: translateY(20px);
-      transition:
-        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-        border-color 0.3s ease,
-        opacity 0.5s ease-out;
-    }
-    
-    .item.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .item:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent);
-      box-shadow: 0 8px 20px var(--accent-light);
-    }
-    
-    .item:active {
-      transform: translateY(-1px) scale(0.99);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-
-    .amount {
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-      letter-spacing: -0.01em;
-    }
-
-    .price {
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    /* Notes */
-    .note {
-      font-size: 0.9rem;
-      color: var(--muted);
-      text-align: center;
-      margin-top: 40px;
-      line-height: 1.5;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    footer {
-      padding: 40px 20px 60px;
-      border-top: 1px solid var(--border);
-      background: var(--bg);
-    }
-
-    /* Mobile */
-    @media (max-width: 480px) {
-      body { font-size: 15px; }
-      header { padding: 40px 20px; }
-      header h1 { font-size: 2rem; }
-      .section h2 { font-size: 1.25rem; }
-      .grid { gap: 16px; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-      .item { padding: 16px; border-radius: 14px;}
-      .amount { font-size: 1rem; }
-      .price { font-size: 0.85rem; }
+    @media (max-width:480px){
+      body{font-size:15px}
+      header{padding:40px 20px}
+      header h1{font-size:2rem}
+      .section h2{font-size:1.25rem}
+      .grid{gap:16px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+      .item{padding:16px;border-radius:14px}
+      .amount{font-size:1rem}
+      .price{font-size:.85rem}
     }
   </style>
 </head>
 <body>
+  <header><h1>Mobile Legend Indonesia</h1></header>
 
-  <header>
-    <h1>Mobile Legend Indonesia</h1>
-  </header>
-  
   <section class="section" data-title="Semua Denom">
     <h2>Semua Denom</h2>
     <div class="grid"></div>
@@ -174,21 +85,16 @@
   <section class="section" data-title="Diamond Double 1x Transaksi">
     <h2>Diamond Double 1x Transaksi</h2>
     <div class="grid"></div>
-    <div class="note">
-      * 1 ID hanya bisa 1x tiap denom. Jika sudah beli via login, tidak direkomendasikan membeli via ID.
-    </div>
+    <div class="note">* 1 ID hanya bisa 1x tiap denom. Jika sudah beli via login, tidak direkomendasikan membeli via ID.</div>
   </section>
-  
+
   <footer>
-    <div class="note">
-      <strong>Klik pada item untuk memesan via WhatsApp.</strong><br/>
-      Harga dapat berubah sewaktu-waktu tanpa pemberitahuan.
-    </div>
+    <div class="note"><strong>Klik pada item untuk memesan via WhatsApp.</strong><br/>Harga dapat berubah sewaktu-waktu tanpa pemberitahuan.</div>
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Data Produk
+    document.addEventListener('DOMContentLoaded', () => {
+      // ==== DATA PRODUK (lengkap) ====
       const products = {
         "Semua Denom": [
           { amount: "5 (5+0)", price: "Rp 1,500" }, { amount: "10 (9+1)", price: "Rp 3,001" },
@@ -254,34 +160,55 @@
         ]
       };
 
-      function createItemElement(itemData) {
-        const itemDiv = document.createElement('div');
-        itemDiv.className = 'item';
-        itemDiv.innerHTML = `<div class="amount">${itemData.amount}</div><div class="price">${itemData.price}</div>`;
-        return itemDiv;
+      // create element
+      function createItemElement(itemData){
+        const d = document.createElement('div');
+        d.className = 'item';
+        d.innerHTML = `<div class="amount">${itemData.amount}</div><div class="price">${itemData.price}</div>`;
+        return d;
       }
 
+      // populate grids with fragment (more efficient)
       document.querySelectorAll('.section').forEach(section => {
         const title = section.getAttribute('data-title');
         const grid = section.querySelector('.grid');
-        if (products[title]) {
-          products[title].forEach(productData => {
-            grid.appendChild(createItemElement(productData));
-          });
-        }
+        if (!grid || !products[title]) return;
+        const frag = document.createDocumentFragment();
+        products[title].forEach(pd => frag.appendChild(createItemElement(pd)));
+        grid.appendChild(frag);
       });
-      
+
+      // event delegation for clicks (one listener, robust)
       const adminNumber = '6285877001999';
-      document.querySelectorAll('.item').forEach(item => {
-        item.addEventListener('click', function () {
-          const amountEl = this.querySelector('.amount');
-          if (!amountEl) return;
-          const productName = amountEl.textContent.trim();
-          let productCode;
-          const amount = parseInt(productName, 10);
-          if (!isNaN(amount)) {
-            productCode = amount;
-          } else {
-            productCode = productName.toLowerCase().replace(/\s+/g, '-').replace(/[^+a-zA-Z0-9-]/g, '');
-          }
-          const messageTemplate =
+      document.body.addEventListener('click', (ev) => {
+        const item = ev.target.closest('.item');
+        if (!item) return;
+        const amountEl = item.querySelector('.amount');
+        if (!amountEl) return;
+        const productName = amountEl.textContent.trim();
+        // product code: if starts with number, take number; otherwise slugify
+        let productCode;
+        const amount = parseInt(productName, 10);
+        if (!isNaN(amount) && /^\d+(\s|$)/.test(productName)) {
+          productCode = amount;
+        } else {
+          productCode = productName.toLowerCase().replace(/\s+/g, '-').replace(/[^+a-z0-9-]/g,'');
+        }
+        const messageTemplate = `.buy ml${productCode} <userID> <serverID>`;
+        const url = `https://wa.me/${adminNumber}?text=${encodeURIComponent(messageTemplate)}`;
+        window.open(url, '_blank');
+      });
+
+      // animate with stagger (limit max delay so page anim tetap responsif)
+      const items = document.querySelectorAll('.item');
+      setTimeout(() => {
+        items.forEach((it, i) => {
+          const delay = Math.min(i * 18, 420); // clamp
+          it.style.transitionDelay = delay + 'ms';
+          it.classList.add('is-visible');
+        });
+      }, 80);
+    });
+  </script>
+</body>
+</html>
